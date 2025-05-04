@@ -24,7 +24,7 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Install dependencies
-        run: 
+        run: |
           export PYTHONPATH=src
           poetry install --no-root
 
@@ -32,4 +32,6 @@ jobs:
         env: 
           CHANNEL_ACCESS_TOKEN: ${{ secrets.CHANNEL_ACCESS_TOKEN }}
           NASA_API_KEY: ${{ secrets.NASA_API_KEY }}
-        run: poetry run python main.py
+        run: |
+          export PYTHONPATH=src
+          poetry run python main.py
