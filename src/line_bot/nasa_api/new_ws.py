@@ -32,9 +32,9 @@ def fetch_new_ws() -> str:
                 {round(obj["estimated_diameter"]["meters"]["estimated_diameter_min"], 2)}[m]~{round(obj["estimated_diameter"]["meters"]["estimated_diameter_max"], 2)}[m]
             🚀 地球からの相対速度 (km/h): 
                 {round(float(obj["close_approach_data"][0]["relative_velocity"]["kilometers_per_hour"]), 2)}
-            🌍 再接近時の距離(km):
+            🌍 最接近時の距離(km):
                 {round(float(obj["close_approach_data"][0]["miss_distance"]["kilometers"]), 2)}
             🧨 危険かどうか: {obj["is_potentially_hazardous_asteroid"]}
             {"-" * 40}"""
             )
-    return ret[:500]
+    return ret[:4900]
