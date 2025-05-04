@@ -24,7 +24,9 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Install dependencies
-        run: poetry install --no-root
+        run: 
+          export PYTHONPATH=src
+          poetry install --no-root
 
       - name: Run script
         env: 

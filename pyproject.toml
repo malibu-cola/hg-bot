@@ -4,6 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["malibu-cola <ryhrys4269@icloud.com>"]
 readme = "README.md"
+packages = [
+    { include = "line_bot", from = "src" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
