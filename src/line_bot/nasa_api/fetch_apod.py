@@ -18,8 +18,6 @@ def fetch_apod() -> str:
     【タイトル】{title}\n\n
     【日本語訳】
     {explanation_ja}\n\n
-    【英語原文】
-    {explanation_en}\n\n
     【画像はこちら】
     {image_url}
     """)
