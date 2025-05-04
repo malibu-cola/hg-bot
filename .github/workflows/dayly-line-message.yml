@@ -2,21 +2,21 @@ name: Send LINE Messages
 
 on: 
   schedule:
-    - cron: '0 0 * * *' # 毎日 00:00 UTC(日本時間で9:00)
-  workflow_dispatch:    # 手動実行も可能に
+    - cron: '0 0 * * *' # 毎日 00:00 UTC (日本時間 9:00)
+  workflow_dispatch:
 
 jobs:
   send_message:
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Chechout repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-varsion: '3.11'
+          python-version: '3.11'
 
       - name: Install Poetry
         run: |
@@ -26,8 +26,8 @@ jobs:
       - name: Install dependencies
         run: poetry install --no-root
 
-      - name: Run Script
+      - name: Run script
         env: 
-          CHANNEL_ACCESS_TOKEN: ${{  secrets.CHANNEL_ACCESS_TOKEN}}
+          CHANNEL_ACCESS_TOKEN: ${{ secrets.CHANNEL_ACCESS_TOKEN }}
           NASA_API_KEY: ${{ secrets.NASA_API_KEY }}
         run: poetry run python main.py
