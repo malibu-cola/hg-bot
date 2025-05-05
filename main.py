@@ -7,4 +7,5 @@ load_dotenv()
 
 if __name__ == "__main__":
     send_line(fetch_apod())
-    send_line(fetch_new_ws())
+    if new_ws := fetch_new_ws():
+        send_line(new_ws)
