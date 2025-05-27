@@ -9,6 +9,10 @@ jobs:
   send_message:
     runs-on: ubuntu-latest
 
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
