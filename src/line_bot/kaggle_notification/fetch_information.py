@@ -4,7 +4,7 @@ from line_bot.util.translate import translate_text
 api = KaggleApi()
 api.authenticate()
 
-def fetch_competitions():
+def fetch_competitions() -> str:
     ret = ""
     competitions = api.competitions_list(sort_by='latestDeadline')
     for comp in competitions:
@@ -15,3 +15,4 @@ def fetch_competitions():
         URL: {comp.ref}
         {translate_text(text, 'ja')[:100]}...
         ---"""
+    return ret
