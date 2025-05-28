@@ -8,7 +8,8 @@ from line_bot.youtube_podcast.save_and_send import save_and_send
 load_dotenv()
 
 if __name__ == "__main__":
-    send_line(fetch_apod())
+    if apod := fetch_apod():
+        send_line(apod) 
     if new_ws := fetch_new_ws():
         send_line(new_ws)
     if podcast := save_and_send():
