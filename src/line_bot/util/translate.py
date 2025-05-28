@@ -1,6 +1,7 @@
 from googletrans import Translator
 import asyncio
 
+
 def translate_text(text: str, target_lang: str = "ja") -> str:
     translator = Translator()
     try:

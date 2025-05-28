@@ -1,10 +1,11 @@
 import os
 import requests
 
+
 def get_playlist_videos():
     playlist_id = os.getenv("PLAYLIST_ID")
     api_key = os.getenv("YOUTUBE_API_KEY")
-    
+
     url = "https://www.googleapis.com/youtube/v3/playlistItems"
     videos = []
     next_page_token = ""
@@ -15,7 +16,7 @@ def get_playlist_videos():
             "playlistId": playlist_id,
             "maxResults": 50,
             "key": api_key,
-            "pageToken": next_page_token
+            "pageToken": next_page_token,
         }
 
         res = requests.get(url, params=params)

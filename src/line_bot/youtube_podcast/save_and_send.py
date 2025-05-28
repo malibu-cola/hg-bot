@@ -4,6 +4,7 @@ from textwrap import dedent
 
 from line_bot.youtube_podcast.fetch_playlist import get_playlist_videos
 
+
 def load_sent_log(filepath: str) -> set[str]:
     path = Path(filepath)
     if not path.exists() or path.stat().st_size == 0:
@@ -16,11 +17,15 @@ def save_sent_log(sent_set: set[str], filepath: str):
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(list(sent_set), f, indent=2, ensure_ascii=False)
 
-def get_next_unsent_video(all_videos: list[tuple[str, str]], sent_urls: set[str]) -> tuple[str, str] | None:
+
+def get_next_unsent_video(
+    all_videos: list[tuple[str, str]], sent_urls: set[str]
+) -> tuple[str, str] | None:
     for title, url in all_videos:
         if url not in sent_urls:
             return (title, url)
     return None
+
 
 def save_and_send() -> str | None:
     all_videos = get_playlist_videos()
