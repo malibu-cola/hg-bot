@@ -6,7 +6,7 @@ api = KaggleApi()
 api.authenticate()
 
 def fetch_competitions() -> str:
-    ret = "【Kaggleの最新コンペ】"
+    ret = "【Kaggleの最新コンペ】\n"
     competitions = api.competitions_list(sort_by='latestDeadline')
     for comp in competitions:
         text = comp.description.strip()
