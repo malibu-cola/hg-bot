@@ -3,6 +3,7 @@ from datetime import date, timedelta
 import requests
 from textwrap import dedent
 
+
 def fetch_new_ws() -> str | None:
     nasa_key = os.getenv("NASA_API_KEY")
     url = "https://api.nasa.gov/neo/rest/v1/feed"
@@ -12,9 +13,9 @@ def fetch_new_ws() -> str | None:
     end_date = date.today()
 
     params = {
-    "start_date": start_date.isoformat(),
-    "end_date": end_date.isoformat(),
-    "api_key": nasa_key
+        "start_date": start_date.isoformat(),
+        "end_date": end_date.isoformat(),
+        "api_key": nasa_key,
     }
 
     response = requests.get(url, params=params)
@@ -37,6 +38,5 @@ def fetch_new_ws() -> str | None:
                 🌍 最接近時の距離(km):
                     {round(float(obj["close_approach_data"][0]["miss_distance"]["kilometers"]), 2)}
                 🧨 危険かどうか: {obj["is_potentially_hazardous_asteroid"]}
-                {"-" * 40}"""
-                )
+                {"-" * 40}""")
     return ret[:4900] if ret else None

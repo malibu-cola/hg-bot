@@ -3,6 +3,7 @@ from line_bot.nasa_api.fetch_apod import fetch_apod
 from line_bot.nasa_api.new_ws import fetch_new_ws
 from dotenv import load_dotenv
 from line_bot.kaggle_notification.fetch_information import fetch_competitions
+
 load_dotenv()
 
 if __name__ == "__main__":
